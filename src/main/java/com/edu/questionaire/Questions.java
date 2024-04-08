@@ -65,6 +65,7 @@ public class Questions extends javax.swing.JFrame {
         image = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Questions");
         setBackground(new java.awt.Color(255, 255, 255));
         setIconImage(img);
 
@@ -129,7 +130,7 @@ public class Questions extends javax.swing.JFrame {
             }
         });
         Qpanel.add(nextBtn);
-        nextBtn.setBounds(40, 140, 72, 23);
+        nextBtn.setBounds(40, 140, 100, 23);
 
         jLayeredPane1.add(Qpanel);
         Qpanel.setBounds(0, 250, 1040, 260);

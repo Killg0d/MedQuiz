@@ -1,12 +1,8 @@
 
 package com.edu.questionaire;
-
-
-
-
 public class Login extends javax.swing.JFrame {
 
-    
+    // Constructor to initialize components and hide the invalid user label
     public Login() {
         initComponents();
         invaliduser.setVisible(false);
@@ -30,6 +26,7 @@ public class Login extends javax.swing.JFrame {
         invaliduser = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Login");
         setBackground(new java.awt.Color(255, 255, 255));
         setIconImage(new Questions().img);
 
@@ -143,29 +140,36 @@ public class Login extends javax.swing.JFrame {
     private void userTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userTextActionPerformed
 
     }//GEN-LAST:event_userTextActionPerformed
-
+// Submit Button Action Event Handler
     private void submitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitActionPerformed
+            // Create an instance of AuthenticationManager
+            AuthenticationManager authManager = new AuthenticationManager();
 
-        AuthenticationManager authManager = new AuthenticationManager();
+            // Get username and password from the text fields
+            String username = userText.getText();
+            String password = passText.getText();
 
-        String username = userText.getText();
-        String password = passText.getText();
-        if (username.isEmpty() || password.isEmpty()) {
-            invaliduser.setVisible(true);
-            invaliduser.setText("User cannot be empty");
-        } else {
-            if (authManager.authenticateUser(username, password)) {
-                System.out.println("User authentication successful.");
-                LoginDetails.password=password;
-                LoginDetails.username=username;
-                setVisible(false);
-                Questions.main(new String []{});
-            } else {
+            // Check if username or password is empty
+            if (username.isEmpty() || password.isEmpty()) {
+                // Show invalid user label and set text
                 invaliduser.setVisible(true);
-                invaliduser.setText("Invalid username or password.");
-                System.out.println("Invalid username or password.");
-            }
-        }
+                invaliduser.setText("User cannot be empty");
+            } else {
+                // Authenticate the user
+                if (authManager.authenticateUser(username, password)) {
+                    // If authentication successful, set username and password in LoginDetails
+                    LoginDetails.password = password;
+                    LoginDetails.username = username;
+                    // Hide login window and show questions window
+                    setVisible(false);
+                    Questions.main(new String[]{});
+                } else {
+                    // If authentication failed, show invalid user label and set text
+                    invaliduser.setVisible(true);
+                    invaliduser.setText("Invalid username or password.");
+                    System.out.println("Invalid username or password.");
+                }
+            }            
     }//GEN-LAST:event_submitActionPerformed
 
     

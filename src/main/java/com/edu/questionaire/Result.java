@@ -39,6 +39,7 @@ public class Result extends javax.swing.JFrame {
         score = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Result");
         setIconImage(new Questions().img);
 
         jLayeredPane1.setBackground(new java.awt.Color(255, 255, 255));
