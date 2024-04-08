@@ -1,17 +1,12 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package com.edu.questionaire;
 
-/**
- *
- * @author Tarun
- */
+
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
+import com.mongodb.client.result.UpdateResult;
 import org.bson.Document;
 
 public class AuthenticationManager {
@@ -29,9 +24,39 @@ public class AuthenticationManager {
         }
     }
 
+    public boolean UpdateScore(int marks) {
+        try{
+            String username = LoginDetails.username, password = LoginDetails.password;
+        
+        if (username.isEmpty() || password.isEmpty()) {
+            System.out.println("Cannot Update Empty String Error");
+            return false;
+        } else {
+            // Create a filter for username and password
+            Document filter = new Document();
+            filter.append("username", username);
+            filter.append("password", password);
+
+            // Create an update to set the new value of the score field
+            Document update = new Document("$set", new Document("score", marks));
+
+            // Update the document that matches the filter
+            UpdateResult result = usersCollection.updateOne(filter, update);
+            // Check if the update was successful
+            return result.getModifiedCount() > 0;
+        }
+        }
+        catch(NullPointerException e)
+        {
+            System.out.println("String is empty");
+            return false;
+        }
+
+    }
+
     public boolean authenticateUser(String username, String password) {
         Document query = new Document("username", username)
-                            .append("password", password);
+                .append("password", password);
         Document user = usersCollection.find(query).first();
         return user != null;
     }

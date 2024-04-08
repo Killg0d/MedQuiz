@@ -26,7 +26,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class QuickStart {
+public class QuestionManager {
     
     public List<Question> getQuestions()
     {
@@ -58,6 +58,6 @@ public class QuickStart {
          
     }
     public static void main( String[] args ) {
-        new QuickStart().getQuestions();
+        new QuestionManager().getQuestions();
     }
 }

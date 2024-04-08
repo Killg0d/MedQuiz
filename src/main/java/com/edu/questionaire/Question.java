@@ -1,11 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package com.edu.questionaire;
 
 /**
- *
+ *Class to hold questions from database
  * @author Tarun
  */
 public class Question {
