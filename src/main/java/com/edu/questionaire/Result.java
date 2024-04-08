@@ -35,6 +35,7 @@ public class Result extends javax.swing.JFrame {
         score = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setIconImage(new Questions().img);
 
         jLayeredPane1.setBackground(new java.awt.Color(255, 255, 255));
         jLayeredPane1.setOpaque(true);
@@ -43,16 +44,16 @@ public class Result extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(0, 102, 102));
         jLabel1.setText("Your Answers have been Submitted!");
         jLayeredPane1.add(jLabel1);
-        jLabel1.setBounds(40, 310, 850, 146);
+        jLabel1.setBounds(40, 210, 850, 146);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/edu/resources/tick_mark.jpg"))); // NOI18N
         jLayeredPane1.add(jLabel2);
-        jLabel2.setBounds(10, 100, 360, 260);
+        jLabel2.setBounds(10, 10, 360, 260);
 
         score.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         score.setText("Score");
         jLayeredPane1.add(score);
-        score.setBounds(440, 190, 320, 70);
+        score.setBounds(440, 100, 320, 70);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
